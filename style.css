@@ -63,12 +63,13 @@ html{
             bottom:95px;
             justify-content:center;
             display:none;
-            border:2px solid grey;
+            
         }
         .shrt{
             width:80%;
             background-color:black;
             padding:10px;
+            border:2px solid grey;
             border-radius:30px;
         }
         .sht{
