@@ -12,6 +12,15 @@ html{
         background:rgba(0,0,0,0.9);
         overflow:hidden;
         }
+  @media screen and (min-width:767px){
+            body{
+                width:100%;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+               // transform:translate(50% 50%);
+            }
+  }
         header{
           //  position:fixed;
             width:100%;
