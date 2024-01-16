@@ -15,10 +15,13 @@ html{
   @media screen and (min-width:767px){
             body{
                 width:100%;
-                display:flex;
+                /*display:flex;
                 justify-content:center;
-                align-items:center;
-               // transform:translate(50% 50%);
+                align-items:center;*/
+                position:relative;
+                top:50%;
+                left:50%;
+                transform:translate(-50%, -50%);
             }
   }
         header{
