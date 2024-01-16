@@ -26,7 +26,7 @@
                  <span>Like</span>
                      </div>
                          <div class = "phase">
-                 <a href = "KNAAN.mp3" id = "a" download = "true"><i class="bx bx-download" id="save" onclick="save()"></i></a>
+                 <a href = "KNAAN.mp3" title="KNAAN" target="_blank" id = "a" download = "true"><i class="bx bx-download" id="save" onclick="save()"></i></a>
                      <span>Download</span>
                          </div>
                              
@@ -428,14 +428,12 @@
                 }
                 
                 //play discover music
-                document.querySelectorAll(".trendDetails").forEach(e=>{
+                document.querySelectorAll(".trendDetail").forEach(e=>{
                     e.onclick = (e)=>{
              document.getElementById("profile").src = `${e.target.parentElement.parentElement.children[0].src}`;
             document.querySelector(".ne .artist").innerHTML = e.target.parentElement.children[0].innerHTML;
               document.querySelector(".ne .title").innerHTML = e.target.parentElement.children[1].innerHTML;
               aud.src = e.target.parentElement.children[1].title;
-      alert(e.target.innerHTML);
-            //  aud.play();
               likedList.style.display="none";
               section1.style.display ="flex";
    
@@ -640,13 +638,12 @@
                 function save(){
                    let a = document.getElementById("a");
                    
-                    a.href = songs[track].url;
-                   
+                   // a.href = songs[track].url;
+                   a.href = aud.src;
                 }
                 //repeat song 
                 function repeat(){
                     aud.currentTime = 0;
-                    //aud.volume = 0.2;
                     aud.play();
                     }
                     
@@ -665,14 +662,12 @@
                       likedList.style.display = "none";
                       libDetail.classList.remove("pop");
                       section2.style.display = "flex";
-                     // section1.style.display = "none";
                       speedRat.style.display= "none";
                document.getElementById('discoverPage').style.display = "none";
                       
                     }
                     let searchArea = document.getElementById("searchArea");
                     let filterSongs = [];
-                    //showGallery(songs);
                 function showGallery(result){
                     for(let i =0;i<result.length;i++){
                         document.querySelector(".searchResult").innerHTML= " ";
@@ -712,7 +707,7 @@
                                 document.querySelector(".nope").style.display= "none";
                                 
                             }
-                         //}
+                         
                 })
                 
         </script>
