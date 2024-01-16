@@ -652,9 +652,7 @@
                     
                     //change song length
                     function range(){
-                        alert(document.querySelector(".progress").value);
-                        aud.currentTime = (document.querySelector(".progress").value * Math.round(aud.duration))/100;;
-                        alert(aud.currentTime);
+                        aud.currentTime = (document.querySelector(".progress").value * Math.round(aud.duration))/100;
                          document.querySelector(".progress").value = aud.currentTime;//(Math.round(aud.currentTime)* 100) / Math.round(aud.duration);
                     }
                     
