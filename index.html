@@ -1,0 +1,919 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Music player"/>
+        <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title> Audio player</title>
+            <link rel="icon" type="image/x-icon" href="4.jpg">
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+            <script src = "scripts/script.js" type = "text/javascript"></script>
+        <style>
+        </style>
+    </head>
+    <body >
+        <section class = "ne">
+            <i class="bx bx-chevron-down" id='downIcon' onclick="pageDown()"></i>
+        <img id = "profile"alt = "profile" src = "166.jpg"></img>
+            <h4 class = "artist">Mohbad</h4>
+            <h3 class = "title">KNAAN</h3>
+                
+                <div class = "icon">
+                    <div class = "phase">
+             <i class="bx bxs-heart light" id="heart" onclick= "heart(this)"></i>
+                 <span>Like</span>
+                     </div>
+                         <div class = "phase">
+                 <a href = "KNAAN.mp3"  id = "a" download = "true"><i class="bx bx-download" id="save" onclick="save()"></i></a>
+                     <span>Download</span>
+                         </div>
+                             <div class = "phase" onclick = "send()">
+             <i class="bx bxs-share-alt"></i>
+                 <span>Share</span>
+                     </div>
+                             
+                     </div>
+                         
+                     <div class = "wave">
+                        
+                        <span style = "--v:1" class = "one"></span>
+                             <span style = "--v:1" class = "seven"></span>
+                          <span style = "--v:2" class = "eight"></span>
+                          <span style = "--v:3" class = "nine"></span>
+                         <span style = "--v:4" class = "ten"></span>
+                           <span style = "--v:5" class = "one"></span>
+                       <span style = "--v:6" class = "two"></span>
+                          <span style = "--v:2" class = "two"></span>
+                          <span style = "--v:3" class = "three"></span>
+                         <span style = "--v:4" class = "four"></span>
+                           <span style = "--v:5" class = "five"></span>
+                          <span style = "--v:6" class = "six"></span>
+                        <span style = "--v:7" class = "seven"></span>
+                          <span style = "--v:8" class = "eight"></span>
+                          <span style = "--v:9" class = "nine"></span>
+                         <span style = "--v:10" class = "ten"></span>
+                           <span style = "--v:11" class = "one"></span>
+                          <span style = "--v:12" class = "two"></span>
+                          <span style = "--v:1" class = "three"></span>
+                          <span style = "--v:2" class = "four"></span>
+                          <span style = "--v:3" class = "five"></span>
+                         <span style = "--v:4" class = "six"></span>
+                           <span style = "--v:5" class = "seven"></span>
+                          <span style = "--v:6" class = "eight"></span>
+                        <span style = "--v:7" class = "nine"></span>
+                          <span style = "--v:8" class = "ten"></span>
+                          <span style = "--v:9" class = "one"></span>
+                         <span style = "--v:10" class = "two"></span>
+                           <span style = "--v:11" class = "three"></span>
+                          <span style = "--v:12" class = "four"></span>
+                         <span style = "--v:1" class = "five"></span>
+                          <span style = "--v:2" class = "six"></span>
+                          <span style = "--v:3" class = "seven"></span>
+                         <span style = "--v:4" class = "eight"></span>
+                           <span style = "--v:5" class = "nine"></span>
+                          <span style = "--v:6" class = "ten"></span>
+                        <span style = "--v:7" class = "one"></span>
+                          <span style = "--v:8" class = "two"></span>
+                          <span style = "--v:9" class = "three"></span>
+                         <span style = "--v:10" class = "four"></span>
+                           <span style = "--v:11" class = "five"></span>
+                          <span style = "--v:12" class = "six"></span>
+                         </div>
+                       <div class = "before">
+                           <input type = "range" onchange = "range()" value = "0" class = "progress">
+                               </div>
+                           
+                         <audio  autoplay = "false" >
+  <source src="KNAAN.mp3" type="audio/mpeg">
+</audio>
+                         <div class = "rate">
+                             <time id = "current">0:00</time>
+                               <time id = "duration">3:00</time>
+                         </div>
+                             
+                         <div class = "controlBtns">
+                             <i class="bx bx-dots-horizontal-rounded" onclick ="list()"></i>
+                             <i class="bx bx-skip-previous" onclick="prev()"></i>
+                            <i class="bx bxs-caret-right-circle play" onclick="start(this)"></i>
+                          <i class="bx bx-skip-next" onclick = "next()" ></i>
+                         <i class="bx bx-shuffle" onclick="shuf()"></i>
+                         </div>
+                             
+
+
+        </section>
+            
+        <!--music play shortcut-->
+      <div class = "shortcut">
+           <div class = "shrt">
+    
+                <div class = "sht">
+                    <div class = "shtDetails" onclick = "sht()">
+                        <img src="166.jpg" alt="image" ></img>
+                       <div class = "shtDetail">
+                           <h2 class = "artist">John doe</h2>
+                           <h3 class = "song" >My brother</h3>
+                       </div>
+                    </div>
+                                  
+                     <i class="bx bxs-caret-right-circle play" onclick="start(this)"></i>
+                 </div>
+           </div>
+      </div>
+            
+           <!--speed rate change-->
+           <section class = "speedRate">
+                               <div class = "top">
+                                   <h3>Play Speed</h3>
+                                       </div>
+                                       <button class='bx bx-x-circle close' id="closeSR" onclick = "closePage()"></button>
+                              
+                                   <div class = "inputRange">
+                                    <input type = "range"  onchange="speedRate()" value = "100" min = "50" max = "200" class = "prog">
+                                     <span class = "rangeVal">100%</span>
+                                       </div>
+                        </section>
+                            
+           <!--repeat and playback speed-->
+             <div class = "menu">
+                <div class = "menus" onclick = "repeat()">
+                 <i class="bx bx-rotate-left" id="repeat"></i>
+                     <span>Repeat</span>
+                         </div>
+                              <div class = "menus" onclick = "playBack()">
+                <i class="bx bx-timer" id="playspeed"></i>
+                     <span>Play Speed</span>
+                         </div>
+           </div>
+               
+            
+                <!--header-->            
+        <header>
+            <h2 class = "headTitle">Discover</h2>
+                <div class = "topNav">
+                    <i class="bx bx-bell"></i>
+                    <i class="bx bx-user-circle" onclick="user()"></i>
+                </div>
+        </header>
+            
+<!--discover page-->
+<section id = "discoverPage">
+    <!--trending music-->
+  <div class = "trending">
+      <h2>Trending</h2>
+          <div class = "trendList">
+                           <!--<div class = "trend">
+                               <div class = "trendDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "trendDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>-->
+                        
+                                 
+          </div>
+  </div>
+      
+  <!--Pop music-->
+  <div class = "poping">
+      <h2>POP Music</h2>
+          <div class = "popList">
+                           <!--<div class = "pop">
+                               <div class = "popDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "popDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>-->
+                        
+                                 
+          </div>
+  </div>
+</section>
+        
+
+             <!--liked songs list-->
+                 <section class = "likedList">
+                     <div class = "top" style = "align-items:center;display:flex;">
+                     <i class="bx bx-arrow-back" onclick="back()"></i>
+                     <h3 style = "margin-left:50px;font-weight:bolder;font-size:30px;">Liked songs</h3>
+                         </div>
+            <div class = "likedSongs">
+               
+               <div class = "musicHome">
+                    <div class = "music">
+                        <img src="Stk.webp" alt="image" width="70" height="70"></img>
+                       <div class = "musicDetail">
+                           <h2 class = "artist">John doe</h2>
+                           <h3 class = "song" title = "Moses.mp3">My brother</h3>
+                       </div>
+                    </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+               </div>
+            </div>
+                <!--liked of trending music-->
+                    
+                
+                    </section>
+            
+        <!--library details-->
+            
+<div class = "libDetail">
+    <div class = "list">
+        <span>Downloads</span>
+       <i class="bx bx-chevron-right"></i>
+    </div>
+        <div class = "list" onclick = "likedSongs()">
+        <span>Likes</span>
+       <i class="bx bx-chevron-right"></i>
+    </div>
+        
+</div>
+            
+                
+                     
+   
+                    <!--Search section-->
+        <section class = "sectionTwo" >
+            <input type="search" id = "searchArea" placeholder = "Search your songs, artist, album" name="text_input">
+                    <span class = "nope">No result found</span>
+         
+                <div class = "searchResult">
+                   <div class = "music">
+                        <img src="166.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail">
+                           <h2 class = "artist">John doe</h2>
+                           <h3 class = "song">My brother</h3>
+                       </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                   </div>
+                    
+           </div>
+                
+        </section>
+           
+            <footer>
+                <div class = "foot" id = "discover">
+                    <i class="bx bxs-hot" id="fire"></i>
+                    <span>Discover</span>
+                </div>
+   <div class = "foot" id = "searchBot"onclick = "search()">
+                    <i class="bx bx-search" id="search"></i>
+                    <span>Search</span>
+                </div>
+                       <div class = "foot" onclick = "lib()">
+                    <i class="bx bx-buildings" id="library"></i>
+                    <span>Library</span>
+                </div>
+            </footer>
+        <script>
+          
+
+          let stat  =document.querySelector(".play");
+          let searchSec =document.querySelector(".sectionTwo");
+            let duration  =document.getElementById("duration");
+            let currentTime = document.getElementById("current");
+            let aud = document.querySelector("audio");
+            let art = document.querySelector(".artist");
+            let title = document.querySelector(".title");
+            let section1 = document.querySelector(".ne");
+            let likeBtn = document.querySelector("#heart");
+             let speedRat = document.querySelector(".speedRate");
+            let discover =document.getElementById("discover");
+            let likeSong = document.querySelector(".likedSongs");
+            let track;
+            let trendCount,popCount;
+            let libDetail  = document.querySelector(".libDetail");
+            let likedList = document.querySelector(".likedList");
+            let index = 1;
+            let likedSong = [];
+            let image = document.querySelector("img");
+            let updateTime;
+
+      
+            window.onload = ()=>{
+                track = 0;
+                popCount=0;
+                  trendCount =0;
+                }
+                
+                //share song
+        function send(){
+  if (navigator.share) {
+    navigator
+      .share({
+          image:img,
+        title: document.title,
+        url: a.href,
+      })
+      .then(() => {
+        console.log("Content shared successfully");
+      })
+      .catch((error) => {
+        console.error("Error sharing content", error);
+      });
+  } else {
+    console.warn("Web Share API is not supported by your browser");
+  }
+};
+                //bring play section down
+             function pageDown(){
+                 //update shortcut details
+                 document.querySelector(".shtDetails img").src = image.src;
+                    document.querySelector(".shtDetail h2").innerHTML = `${art.innerHTML}`;
+                    document.querySelector(".shtDetail h3").innerHTML = `${title.innerHTML}`; 
+                 section1.style.display ="none";
+                 document.querySelector(".shortcut").style.display = "flex";
+             }
+             //close speedRate section
+                function closePage(){
+                    speedRat.style.display="none";
+                  document.querySelector(".menu").classList.toggle("popup");
+                    document.querySelector(".ne").style.display = "flex";
+                    }
+                //sign up
+                function user(){
+                    open('signup.html');
+                }
+                
+                //music payer shortcut
+                function sht(){
+                       section1.style.display ="flex";
+                 document.querySelector(".shortcut").style.display = "none";
+                }
+            //like a music
+            function heart(e){
+            
+       let singer = e.parentElement.parentElement.parentElement.children[2].innerHTML;
+       let songTitle = e.parentElement.parentElement.parentElement.children[3].innerHTML;
+       let img = e.parentElement.parentElement.parentElement.children[1].src;
+                 likedSong.push(songTitle);
+               alert(e.parentElement.parentElement.parentElement.innerHTML);
+               localStorage.setItem("loo",JSON.stringify(likedSong));
+               localStorage.getItem("loo");
+               
+               if(e.classList.contains("light")){
+           
+                likeSong.innerHTML += `
+                <div class="musicHome">
+                    <div class = "music" >
+                        <img src="${img}" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail"onclick="musc(this)">
+                           <h2 class = "artist">${singer}</h2>
+                           <h3 class = "song" title="KNAAN.mp3">${songTitle}</h3>
+                           
+                       </div>
+                    </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                </div>
+                `;
+                e.classList.remove("light");
+                e.classList.add("like");
+                }
+                else{
+                    e.classList.remove("like");
+                    e.classList.add("light");
+                    let home  = document.querySelector(".musicHome").innerHTML;
+                   likeSong.remove();
+               
+               
+                }
+                }
+                
+                   //list out trending music
+                   showTrends(trends);
+                   function showTrends(result){
+                 
+                    for(let i =0;i<result.length;i++){
+                 
+                      document.querySelector(".trendList").innerHTML += `
+                                 
+                           <div class = "trend">
+                               <div class = "trendDetails">
+                        <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "trendDetail">
+                           <h2 class = "artist">${result[i].artist}</h2>
+                           <h3 class = "song" title = "${result[i].url}">${result[i].title}</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                        
+                    
+                                `;
+                    }
+                }
+                //play trending music
+                document.querySelectorAll(".trendDetail").forEach(e=>{
+                    e.onclick = (e)=>{
+                 
+             document.getElementById("profile").src = `${e.target.parentElement.parentElement.children[0].src}`;
+            //add trendMusic to artist to distinguish it from other music
+     document.querySelector(".ne .artist").classList.add("trendMusic");
+     //write out music details
+            document.querySelector(".ne .artist").innerHTML = e.target.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.target.parentElement.children[1].innerHTML;
+              aud.src = e.target.parentElement.children[1].title;
+              aud.play();
+              clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+              likedList.style.display="none";
+              section1.style.display ="flex";
+              document.querySelector(".play").classList.remove("bxs-caret-right-circle");
+              document.querySelector(".play").classList.add("bx-pause-circle");
+                    }
+                });
+                
+
+//list out pop music
+                   showPops(pops);
+                   function showPops(result){
+                 
+                    for(let i =0;i<result.length;i++){
+                 
+                      document.querySelector(".popList").innerHTML += `
+                                 
+                           <div class = "pop">
+                               <div class = "popDetails">
+                        <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "popDetail">
+                           <h2 class = "artist">${result[i].artist}</h2>
+                           <h3 class = "song" title = "${result[i].url}">${result[i].title}</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                        
+                    
+                                `;
+                    }
+                }
+                //play pop music
+                document.querySelectorAll(".popDetail").forEach(e=>{
+                    e.onclick = (e)=>{
+                 
+             document.getElementById("profile").src = `${e.target.parentElement.parentElement.children[0].src}`;
+            //add trendMusic to artist to distinguish it from other music
+     document.querySelector(".ne .artist").classList.add("popMusic");
+     //write out music details
+            document.querySelector(".ne .artist").innerHTML = e.target.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.target.parentElement.children[1].innerHTML;
+              aud.src = e.target.parentElement.children[1].title;
+              aud.play();
+              clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+              likedList.style.display="none";
+              section1.style.display ="flex";
+              document.querySelector(".play").classList.remove("bxs-caret-right-circle");
+              document.querySelector(".play").classList.add("bx-pause-circle");
+                    }
+                });
+                
+                //play songs from like library
+             function musc(e){
+           document.getElementById("profile").src = e.parentElement.children[0].src;
+            document.querySelector(".ne .artist").innerHTML = e.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.parentElement.children[1].innerHTML;
+             aud.src = "KNAAN.mp3";
+             likeBtn.classList.add("like");
+             stat.classList.add("bx-pause-circle");
+              aud.play();
+              likedList.style.display="none";
+              section1.style.display ="flex";
+          }
+          
+          
+                
+          //list out liked songs
+          function likedSongs(){
+              likedList.style.display = "block";
+      
+          }
+          
+          //close liked songs page
+          function back(){
+              likedList.style.display = "none";
+              libDetail.classList.remove('pop');
+              }
+
+            //discover button
+            discover.onclick = ()=>{
+                likedList.style.display= "none";
+                speedRat.style.display= "none";
+                libDetail.classList.remove('pop');
+                searchSec.style.display= "none";
+                document.querySelector(".headTitle").innerHTML = "Discover";
+               document.getElementById('discoverPage').style.display = "flex";
+            }
+            
+        //switchTrend
+        function switchTrend(trend){
+        aud.src = trends[trend].url;
+       image.src = trends[trend].image;
+        art.innerHTML = trends[trend].artist;
+        title.innerText = trends[trend].title;
+        aud.currentTime = 0;
+        duration.innerHTML = Math.round(aud.duration);
+        stat.classList.remove("bxs-caret-right-circle");
+                    stat.classList.add("bx-pause-circle");
+        aud.play();
+        speedRate();
+        clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+           
+            for(let i =0;i<likedSong.length;i++){
+   
+            if(likedSong[i] === trends[trend].title){
+         
+            likeBtn.classList.add("like");
+    }
+    else{
+        likeBtn.classList.remove("like");
+    }
+    }
+    
+    }
+    
+    //switchPop
+        function switchPop(trend){
+        aud.src = pops[trend].url;
+       image.src = pops[trend].image;
+        art.innerHTML = pops[trend].artist;
+        title.innerText = pops[trend].title;
+        aud.currentTime = 0;
+        duration.innerHTML = Math.round(aud.duration);
+        stat.classList.remove("bxs-caret-right-circle");
+                    stat.classList.add("bx-pause-circle");
+        aud.play();
+        speedRate();
+        clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+           
+            for(let i =0;i<likedSong.length;i++){
+   
+            if(likedSong[i] === pops[trend].title){
+         
+            likeBtn.classList.add("like");
+ }
+    }
+    
+    }
+    
+        //switchTrack 
+   function switchTrack(track){
+               aud.src = songs[track].url;
+       image.src = songs[track].image;
+        art.innerHTML = songs[track].artist;
+        title.innerText = songs[track].title;
+        aud.currentTime = 0;
+        
+        duration.innerHTML = Math.round(aud.duration);
+        stat.classList.remove("bxs-caret-right-circle");
+                    stat.classList.add("bx-pause-circle");
+        aud.play();
+        speedRate();
+        clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+           
+            for(let i =0;i<likedSong.length;i++){
+   
+            if(likedSong[i] === songs[track].title){
+         
+            likeBtn.classList.add("like");
+    }
+    else{
+        likeBtn.classList.remove("like");
+    }
+    }
+    
+    }
+    
+                //play button
+            function start(e){
+                
+            //play
+                if(e.classList.contains("bxs-caret-right-circle")){
+                    e.classList.remove("bxs-caret-right-circle");
+                    e.classList.add("bx-pause-circle");
+            aud.play();
+            }
+               
+        
+          //pause
+        else{
+            e.classList.add("bxs-caret-right-circle");
+              e.classList.remove("bx-pause-circle");
+                    aud.pause();
+            }
+            
+              clearInterval(updateTime);
+              
+            updateTime =  setInterval(clock,1000);
+             
+           
+          }
+          
+        //library toggle
+        function lib(){
+            document.querySelector(".libDetail").classList.toggle("pop");
+        }
+        
+          //time format
+          function clock(){
+              let count = 0;
+             let audioLen = Math.round(aud.duration);
+            let audioTim = Math.round(aud.currentTime);
+            let currentMins = Math.floor(audioTim / 60);
+            let currentSec = Math.floor(audioTim - currentMins * 60);
+             let durationMins = Math.floor(audioLen / 60);
+            let durationSec = Math.floor(audioLen - durationMins * 60);
+          if(!isNaN(aud.duration)){
+              if(currentMins < 10 ){
+                currentMins = "0" + currentMins;
+            }
+                if(currentSec < 10 ){
+                currentSec = "0" + currentSec;
+            }
+            if(durationMins < 10){
+                durationMins= "0" + durationMins;
+            }
+            if(durationSec < 10){
+                durationSec = "0" + durationSec;
+            }
+            
+            }
+            
+            //song progress under time function
+        document.querySelector(".progress").value = (Math.round(aud.currentTime)* 100) / Math.round(aud.duration);
+                duration.innerHTML = durationMins + ":" + durationSec;
+                currentTime.innerHTML = currentMins + ":" + currentSec;
+                
+                //update sgortcut details
+                document.querySelector(".shtDetails img").src = image.src;
+                    document.querySelector(".shtDetail h2").innerHTML = `${art.innerHTML}`;
+                    document.querySelector(".shtDetail h3").innerHTML = `${title.innerHTML}`; 
+             
+                   //autonext songs from trend
+                 if(document.querySelector(".ne .artist").classList.contains("trendMusic")){
+    
+                       if(trendCount < trends.length -1&& duration.innerHTML === currentTime.innerHTML ){
+                    trendCount++; 
+          
+            switchTrend(trendCount); 
+                    }
+                    if(trendCount === trends.length &&  duration.innerHTML === currentTime.innerHTML){
+                        trendCount = 0;
+                        switchTrack(trendCount);
+                    }
+                    
+                    }
+                       //autonext songs from pop
+                 if(document.querySelector(".ne .artist").classList.contains("popMusic")){
+    
+                       if(popCount < pops.length -1&& duration.innerHTML === currentTime.innerHTML ){
+                    popCount++; 
+          
+            switchPop(popCount); 
+                    }
+                    if(popCount === pops.length &&  duration.innerHTML === currentTime.innerHTML){
+                        popCount = 0;
+                        switchPop(popCount);
+                    }
+                    
+                    }
+                    //autonext track songs
+                    else{
+                        if(track < songs.length -1 && duration.innerHTML === currentTime.innerHTML ){
+                    track++; 
+          
+            switchTrack(track); 
+                    }
+                    if(track === songs.length &&  duration.innerHTML === currentTime.innerHTML){
+                        track = 0;
+                        switchTrack(track);
+                    }
+                    }
+                    
+                    
+              
+          }
+          
+//next button
+              function next(){
+                  if(document.querySelector(".ne .artist").classList.contains("trendMusic")){
+    
+                       if(trendCount < trends.length -1 ){
+                    trendCount++; 
+          
+            switchTrend(trendCount); 
+                    }
+                    else{
+                        trendCount = 0;
+                        switchTrend(trendCount); 
+                    }
+                    }
+                    //next pop songs
+                    else if(document.querySelector(".ne .artist").classList.contains("popMusic")){
+    
+                       if(popCount < pops.length -1 ){
+                    popCount++; 
+          
+            switchPop(popCount); 
+                    }
+                    else{
+                        popCount = 0;
+                        switchPop(popCount); 
+                    }
+                    }
+                    //next track songs
+                    else{
+                        if(track < songs.length -1  ){
+                    track++; 
+          
+            switchTrack(track); 
+                    }
+                    else{
+                        track = 0;
+                        switchTrack(track);
+                    }
+                    }
+                    
+                    
+                }
+                let tim = 0.5;
+                
+//pay speed
+                function playBack(){
+                    document.querySelector(".ne").style.display="none";
+                    document.querySelector(".speedRate").style.display="flex";
+                    
+                }
+                //change speed rate input 
+                function speedRate(){
+                      let prog = document.querySelector(".prog");
+                      document.querySelector(".rangeVal").innerText = prog.value + "%";
+                   aud.playbackRate = prog.value / 100;
+                }
+              
+                //pop up menu
+                function list(){
+                  document.querySelector(".menu").classList.toggle("popup");
+                    }
+                //previous button
+                function prev(){
+                    //prev trend songs
+                    if(document.querySelector(".ne .artist").classList.contains("trendMusic")){
+    
+                       if(trendCount >0 ){
+                    trendCount--; 
+          
+            switchTrend(trendCount); 
+                    }
+                    else{
+                        trendCount = trends.length - 1;
+                        switchTrend(trendCount); 
+                    }
+                    }
+                    //prev pop songs
+                    if(document.querySelector(".ne .artist").classList.contains("popMusic")){
+    
+                       if(popCount >0 ){
+                    popCount--; 
+          
+            switchPop(popCount); 
+                    }
+                    else{
+                        popCount = pops.length - 1;
+                        switchPop(popCount); 
+                    }
+                    }
+                    
+                    //prev track songs
+                    else{
+                        if(track >0  ){
+                    track--; 
+          
+            switchTrack(track); 
+                    }
+                    else{
+                        track = songs.length -1;
+                        switchTrack(track);
+                    }
+                    }
+             
+                }
+                //shuffle btn
+                function shuf(){
+                   let rand =  Math.floor(Math.random() * (songs.length));
+                   aud.src = songs[rand].url;
+                   image.src = songs[rand].image;
+        art.innerHTML = songs[rand].artist;
+        title.innerText = songs[rand].title;
+        stat.classList.remove("bxs-caret-right-circle");
+                    stat.classList.add("bx-pause-circle");
+                   aud.play();
+                   clearInterval(updateTime);
+              
+            updateTime =  setInterval(clock,1000);
+            
+                }
+                //download
+                function save(){
+                   let a = document.getElementById("a");
+                   
+            //        a.href = songs[track].url;
+                   a.href = aud.src;
+                   alert(a.href);
+                }
+                //repeat song 
+                function repeat(){
+                    aud.currentTime = 0;
+                    aud.play();
+                    }
+                    
+                    //change song length
+                    function range(){
+                        aud.currentTime = (document.querySelector(".progress").value * Math.round(aud.duration))/100;
+                         document.querySelector(".progress").value = aud.currentTime;
+                    }
+                    
+                            
+                    //search songs
+                    function search(){
+                        document.querySelector(".headTitle").innerHTML = "Search";
+                        let section1 = document.querySelector(".ne");
+                       let section2 = document.querySelector(".sectionTwo");
+                      likedList.style.display = "none";
+                      libDetail.classList.remove("pop");
+                      section2.style.display = "flex";
+                     // section1.style.display = "none";
+                      speedRat.style.display= "none";
+               document.getElementById('discoverPage').style.display = "none";
+                      
+                    }
+                    let searchArea = document.getElementById("searchArea");
+                    let filterSongs = [];
+                   // showGallery(songs);
+                function showGallery(result){
+                    for(let i =0;i<result.length;i++){
+                        document.querySelector(".searchResult").style.display="flex";
+                        document.querySelector(".searchResult").innerHTML= " ";
+                        
+                      document.querySelector(".searchResult").innerHTML += `
+                                  
+                    <div class = "music">
+                 <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail">
+                           <h2 class = "artist">${result[i].artist}</h2>
+                           <h3 class = "song">${result[i].title}</h3>
+                       </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                                `;
+                    }
+                }
+                document.getElementById("searchArea").addEventListener("input", function(){
+                    let searchVal = document.getElementById("searchArea").value.toLocaleString();
+                    
+                    filterSongs = songs.filter(function(e){
+                                    if(e.title.includes(searchVal) || e.artist.includes(searchVal)){
+                                        var newObj = {title : e.title, artist : e.artist };
+                                        return newObj;
+                                    }
+                                   
+                        })
+                   
+  
+                            if(filterSongs === null){
+                                document.querySelector(".nope").style.display ="block";
+                                document.querySelector(".searchResult").style.display="flex";
+                                document.querySelector(".searchResult").innerHTML = " ";
+                            }
+                            else{
+                                showGallery(filterSongs);
+                                document.querySelector(".nope").style.display= "block";
+                                
+                            }
+                         
+                })
+                
+        </script>
+    </body>
+ </html>
