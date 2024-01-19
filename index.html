@@ -315,7 +315,7 @@
   if (navigator.share) {
     navigator.share({
         title: document.title,
-        url: window.locationhref,
+        url: window.location.href,
       })
       .then(() => {
         console.log("Content shared successfully");
