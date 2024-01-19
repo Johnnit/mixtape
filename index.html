@@ -30,7 +30,7 @@
                  <a href = "KNAAN.mp3"  id = "a" download = "true"><i class="bx bx-download" id="save" onclick="save()"></i></a>
                      <span>Download</span>
                          </div>
-                             <div class = "phase" onclick = "send()">
+                             <div class = "phase" id="send">
              <i class="bx bxs-share-alt"></i>
                  <span>Share</span>
                      </div>
@@ -309,14 +309,13 @@
                 popCount=0;
                   trendCount =0;
                 }
-                
-                //share song
-        function send(){
+                   //share song
+        document.getElementById("send").addEventListener("click",()=>{
+         
   if (navigator.share) {
     navigator.share({
-          image:img,
         title: document.title,
-        url: window.location.href,
+        url: window.locationhref,
       })
       .then(() => {
         console.log("Content shared successfully");
@@ -327,8 +326,9 @@
   } else {
     console.warn("Web Share API is not supported by your browser");
   }
-};
-                //bring play section down
+});
+            
+       //bring play section down
              function pageDown(){
                  //update shortcut details
                  document.querySelector(".shtDetails img").src = image.src;
