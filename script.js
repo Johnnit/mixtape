@@ -56,7 +56,7 @@ const trends = [
         {
        "title": "My brother",
        "url":"KNAAN.mp3",
-       "image": "stk.webp",
+       "image": "Stk.webp",
        "artist": "John Doe",
        },
        {
@@ -99,7 +99,7 @@ const pops = [
         {
        "title": "My brother",
        "url":"KNAAN.mp3",
-       "image": "stk.webp",
+       "image": "Stk.webp",
        "artist": "John Doe",
        },
        {
