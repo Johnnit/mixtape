@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Music player"/>
+        <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title> Audio player</title>
+            <link rel = "shortcut icon" href="4.jpg" type ="image/x-icon">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+            
+         <script src = "sht.js" type = "text/javascript"></script>
+            <script src = "scripts/script.js" type = "text/javascript"></script>
+              <script src = "aud.js" type = "text/javascript"></script>
+               <script src = "controls.js" type = "text/javascript"></script>
+               <script src = "./downloads.js" type = "text/javascript"></script>
+                   <script src="https://unpkg.com/wavesurfer.js"></script>
+    </head>
+    <body onoffline="offline()">
+        <section class = "ne">
+            <i class="bx bx-chevron-down" id='downIcon' onclick="pageDown()"></i>
+        <img id = "profile"alt = "profile" src = "166.jpg"></img>
+            <h4 class = "artist bb">Mohbad</h4>
+            <h3 class = "title">KNAAN</h3>
+                
+                <div class = "icon">
+                    <div class = "phase">
+             <i class="bx bxs-heart light" id="heart" onclick= "heart(this)"></i>
+                 <span>Like</span>
+                     </div>
+                         <div class = "phase save">
+                 <a href = "KNAAN.mp3"  id = "a" download = "true"><i class="bx bx-download" id="save" ></i></a>
+                     <span>Download</span>
+                         </div>
+                             <div class = "phase"id="send">
+             <i class="bx bxs-share-alt"></i>
+                 <span>Share</span>
+                     </div>
+                             
+                     </div>
+                         
+                     <div class= "wave">
+                        
+                        <span style = "--i:1" class = "one"></span>
+                             <span style = "--i:2" class = "seven"></span>
+                          <span style = "--i:3" class = "eight"></span>
+                          <span style = "--i:4" class = "nine"></span>
+                         <span style = "--i:5" class = "ten"></span>
+                           <span style = "--i:6" class = "one"></span>
+                       <span style = "--i:7" class = "two"></span>
+                          <span style = "--i:8" class = "two"></span>
+                          <span style = "--i:9" class = "three"></span>
+                         <span style = "--i:10" class = "four"></span>
+                           <span style = "--i:11" class = "five"></span>
+                          <span style = "--i:12" class = "six"></span>
+                        <span style = "--i:13" class = "seven"></span>
+                          <span style = "--i:14" class = "eight"></span>
+                          <span style = "--i:15" class = "nine"></span>
+                         <span style = "--i:16" class = "ten"></span>
+                           <span style = "--i:17" class = "one"></span>
+                          <span style = "--i:18" class = "two"></span>
+                          <span style = "--i:19" class = "three"></span>
+                          <span style = "--i:20" class = "four"></span>
+                          <span style = "--i:21" class = "five"></span>
+                         <span style = "--i:22" class = "six"></span>
+                           <span style = "--i:23" class = "seven"></span>
+                          <span style = "--i:24" class = "eight"></span>
+                        <span style = "--i:25" class = "nine"></span>
+                          <span style = "--i:26" class = "ten"></span>
+                          <span style = "--i:27" class = "one"></span>
+                         <span style = "--i:28" class = "two"></span>
+                           <span style = "--i:29" class = "three"></span>
+                          <span style = "--i:30" class = "four"></span>
+                         <span style = "--i:31" class = "five"></span>
+                          <span style = "--i:32" class = "six"></span>
+                          <span style = "--i:33" class = "seven"></span>
+                         <span style = "--i:34" class = "eight"></span>
+                           <span style = "--i:35" class = "nine"></span>
+                          <span style = "--i:36" class = "ten"></span>
+                        <span style = "--i:37" class = "one"></span>
+                          <span style = "--i:38" class = "two"></span>
+                          <span style = "--i:39" class = "three"></span>
+                         <span style = "--i:40" class = "four"></span>
+                           <span style = "--i:41" class = "five"></span>
+                          <span style = "--i:42" class = "six"></span>
+                         </div>
+                             
+                       <div class = "before">
+                           <input type = "range" onchange = "range()" value = "0" class = "progress">
+                               </div>
+                           
+                         <audio  autoplay = "false" src = "KNAAN.mp3" type="audio/mpeg">
+  
+</audio>
+                         <div class = "rate">
+                             <time id = "current">0:00</time>
+                               <time id = "duration">3:00</time>
+                         </div>
+                             <div class="words" contenteditable> 
+
+        <p id="p"></p> 
+
+    </div> 
+
+  
+                         <div class = "controlBtns">
+                             <i class="bx bx-dots-horizontal-rounded" onclick ="list()"></i>
+                             <i class="bx bx-skip-previous" onclick="prev()"></i>
+                            <i class="bx bxs-caret-right-circle play" onclick="start(this)"></i>
+                          <i class="bx bx-skip-next" onclick = "next()" ></i>
+                         <i class="fa fa-random" id="loop" onclick="shuf(this)"></i>
+                         </div>
+                             
+        </section>
+            <script> 
+/*
+        var speech = true; 
+
+        window.SpeechRecognition = window.SpeechRecognition 
+
+                        || window.webkitSpeechRecognition; 
+
+  
+
+        const recognition = new SpeechRecognition(); 
+
+        recognition.interimResults = true; 
+
+        const words = document.querySelector('.words'); 
+
+        words.appendChild(p); 
+
+  
+
+        recognition.addEventListener('result', e => { 
+
+            const transcript = Array.from(e.results) 
+
+                .map(result => result[0]) 
+
+                .map(result => result.transcript) 
+
+                .join('') 
+
+  
+
+            document.getElementById("p").innerHTML = transcript; 
+
+            console.log(transcript); 
+
+        }); 
+
+          
+
+        if (speech == true) { 
+
+            recognition.start(); 
+
+            recognition.addEventListener('end', recognition.start); 
+
+        } */
+        </script>
+            <!--alert-->
+                   <div class = "alert-top">
+                       <div class = "alert">
+                       <p>One item added to cart</p>
+                           </div>
+                   </div>
+        <!--music play shortcut-->
+      <div class = "shortcut">
+           <div class = "shrt">
+    
+                <div class = "sht">
+                    <div class = "shtDetails" onclick = "sht()">
+                        <img src="166.jpg" alt="image" ></img>
+                       <div class = "shtDetail">
+                           <h2 class = "artist">John doe</h2>
+                           <h3 class = "song" >My brother</h3>
+                       </div>
+                    </div>
+                                  
+                     <i class="bx bxs-caret-right-circle play" onclick="start(this)"></i>
+                 </div>
+           </div>
+      </div>
+            
+           <!--speed rate change-->
+           <section class = "speedRate">
+                               <div class = "top">
+                                   <h3>Play Speed</h3>
+                                       </div>
+                                       <button class='bx bx-x-circle close' id="closeSR" onclick = "closePage()"></button>
+                              
+                                   <div class = "inputRange">
+                                    <input type = "range"  onchange="speedRate()" value = "100" min = "50" max = "200" class = "prog">
+                                     <span class = "rangeVal">100%</span>
+                                       </div>
+                        </section>
+                            
+           <!--repeat and playback speed-->
+             <div class = "menu">
+                <div class = "menus" onclick = "repeat()">
+                 <i class="bx bx-rotate-left" id="repeat"></i>
+                     <span>Repeat</span>
+                         </div>
+                              <div class = "menus" onclick = "playBack()">
+                <i class="bx bx-timer" id="playspeed"></i>
+                     <span>Play Speed</span>
+                         </div>
+           </div>
+               
+            
+                <!--header-->            
+        <header>
+            <h2 class = "headTitle">Discover</h2>
+                <div class = "topNav">
+                    <i class="bx bx-bell bx-tada"></i>
+                    <i class="bx bx-user-circle" onclick="user()"></i>
+                </div>
+        </header>
+            
+        <!--see all discover-->
+            <section class = "displayAll push">
+                
+                <div class = "displayAll-list">
+                    
+                           <div class = "display-list">
+                               <div class = "displayDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "trendDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                           <div class = "display-list">
+                               <div class = "displayDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "displayDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                        
+                                 
+          </div>
+            </section>
+            
+<!--discover page-->
+<section id = "discoverPage" class = "push">
+    
+    <!--trending music-->
+  <div class = "trending">
+      <div class = "head">
+      <h2>Trending Music</h2>
+          <span id = "seeAll" class = "trendAll">see all</span>
+              </div>
+          <div class = "trendList">
+                           <!--<div class = "trend">
+                               <div class = "trendDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "trendDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>-->
+                        
+                                 
+          </div>
+  </div>
+      
+  <!--Pop music-->
+  <div class = "poping">
+      <div class="head">
+      <h2>POP Music</h2>
+          <span id = "seeAll" class = "popAll">see all</span>
+              </div>
+          <div class = "popList">
+                           <!--<div class = "pop">
+                               <div class = "popDetails">
+                        <img src="4.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "popDetail">
+                           <h2 class = "artist">Ajala John</h2>
+                           <h3 class = "song" title = "KNAAN.mp3">Low key</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>-->
+                        
+                                 
+          </div>
+  </div>
+</section>
+        
+
+             <!--liked songs list-->
+                 <section class = "likedList">
+                     <div class = "top" style = "align-items:center;display:flex;">
+                     <i class="bx bx-arrow-back" onclick="back(this)"></i>
+                     <h3 style = "margin-left:50px;font-weight:bolder;font-size:30px;">Liked songs</h3>
+                         </div>
+            <div class = "likedSongs">
+               
+               <div class = "musicHome">
+                    <div class = "music">
+                        <img src="Stk.webp" alt="image" width="70" height="70"></img>
+                       <div class = "musicDetail">
+                           <h2class = "artist">John doe</h2>
+                           <h3 class = "song" title = "Moses.mp3">My brother</h3>
+                       </div>
+                    </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+               </div>
+            </div>
+                <!--liked of trending music-->
+                    
+                
+                    </section>
+                        
+                    <!--downloaded songs list-->
+                 <section class = "downloads">
+                     <div class = "top" style = "align-items:center;display:flex;">
+                     <i class="bx bx-arrow-back" onclick="back(this)"></i>
+                     <h3 style = "margin-left:50px;font-weight:bolder;font-size:30px;">Downloads</h3>
+                         </div>
+                             <p class = "content">No item in the download</p>
+            <div class = "downloadSongs">
+               
+         
+            </div>
+                <!--downloaded of trending music-->
+                    
+                
+                    </section>
+            
+        <!--library details-->
+            
+<div class = "libDetail">
+    <div class = "list store" onclick = "store()">
+        <span>Downloads</span>
+       <i class="bx bx-chevron-right"></i>
+    </div>
+        <div class = "list Like" onclick = "likedSongs()">
+        <span>Likes</span>
+       <i class="bx bx-chevron-right"></i>
+    </div>
+        
+</div>
+            
+                
+                     
+   
+                    <!--Search section-->
+        <section class = "sectionTwo push" >
+            <input type="search" id = "searchArea" placeholder = "Search your songs, artist, album" name="text_input">
+                    <span class = "nope">No result found</span>
+         
+                <div class = "searchResult">
+                   <div class = "music">
+                        <img src="166.jpg" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail">
+                           <h2 class = "artist">John doe</h2>
+                           <h3 class = "song">My brother</h3>
+                       </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                   </div>
+                    
+           </div>
+                
+        </section>
+           
+            <footer>
+                <div class = "foot" id = "discover">
+                    <i class="bx bxs-hot" id="fire"></i>
+                    <span>Discover</span>
+                </div>
+   <div class = "foot" id = "searchBot"onclick = "search()">
+                    <i class="bx bx-search" id="search"></i>
+                    <span>Search</span>
+                </div>
+                       <div class = "foot" onclick = "lib()">
+ <i class="bx bx-buildings" id="library"></i>
+                    <span>Library</span>
+                </div>
+            </footer>
+                
+                
+                       
+        <script>
+          
+
+          let stat  =document.querySelector(".play");
+          let searchSec =document.querySelector(".sectionTwo");
+            let duration  =document.getElementById("duration");
+            let currentTime = document.getElementById("current");
+            let aud = document.querySelector("audio");
+            let art = document.querySelector(".artist");
+            let title = document.querySelector(".title");
+            let section1 = document.querySelector(".ne");
+            let likeBtn = document.querySelector("#heart");
+             let speedRat = document.querySelector(".speedRate");
+            let discover =document.getElementById("discover");
+            let likeSong = document.querySelector(".likedSongs");
+            let track;
+            let popId,trendId,dwnId;
+            const saved = [];
+            let disAll = document.querySelector(".displayAll");
+            let trendCount,popCount,dwnCount;
+            let libDetail  = document.querySelector(".libDetail");
+            let likedList = document.querySelector(".likedList");
+            let index = 1;
+            let storex;
+            const downloads = document.querySelector(".downloads");
+              const _like = document.querySelector(".Like");
+            let likedSong = [];
+            let image = document.querySelector("img");
+            let updateTime;
+            let val = 10;
+       
+          
+showDwnld(JSON.parse(localStorage.getItem("Downloads")));
+function showDwnld(event){
+    if(event === null){
+alert("no download");
+}else{
+    for(let i=0;i<event.length;i++){
+    document.querySelector(".downloadSongs").innerHTML += `
+                     <div class = "musicHome">
+                       <div class = "music">
+                        <img src="${event[i].image}" alt="image" width="70" height="70"></img>
+                       <div class = "musicDetail dwnDetail" onclick="dwnld(this)">
+                           <h2 class = "artist" id="${i}">${event[i].artist}</h2>
+                           <h3 class = "song" title = "${event[i].url}">${event[i].title}</h3>
+                            <div class="wrapper">  
+          <div id="progress" ></div>
+                                   <span class = "percent">0%</span>
+                       </div>
+                       </div>
+                       
+                    </div>
+                              
+                    <i class="bx bx-trash trash"  onclick="del(this)" style="color:red;" ></i>
+               </div>
+                   `;
+}
+}
+}
+ 
+
+function store(){
+    downloads.style.display = "block";
+    likedList.style.display = "none";
+}
+
+  
+            window.onload = ()=>{
+                track = 0;
+                popCount=0;
+                  trendCount =0;
+                  dwnCount =0;
+                  
+                }
+                
+                //share song
+        document.getElementById("send").addEventListener("click",()=>{
+         
+  if (navigator.share) {
+    navigator.share({
+        title: document.title,
+        url: window.location.href,
+      })
+      .then(() => {
+        console.log("Content shared successfully");
+      })
+      .catch((error) => {
+        console.error("Error sharing content", error);
+      });
+  } else {
+    console.warn("Web Share API is not supported by your browser");
+  }
+});
+
+                        //see all discovered music
+document.querySelectorAll("#seeAll").forEach((e)=>{
+      e.addEventListener("click",(e)=>{
+          disAll.style.display ="flex";
+          document.getElementById("discoverPage").style.display ="none";
+          if(document.querySelector("#seeAll").classList.contains("trendAll")){
+      for(let i = 0;i<trends.length;i++){
+      document.querySelector(".displayAll-list").innerHTML += `
+       <div class = "display-list">
+                               <div class = "displayDetails">
+                        <img src="${trends[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "displayDetail">
+                           <h2 class = "artist">${trends[i].artist}</h2>
+                           <h3 class = "song" title = "${trends[i].url}">${trends[i].title}</h3>
+                       </div>
+                             </div>
+                                  
+                               <div class="displayMenu">
+                    <i class="bx bx-dots-vertical-rounded dots" onclick="name(this)"></i>
+                        <div class="slide" id="slide">
+                               <button class="bx bxs-heart light" ></button>
+                                 <button class="bx bx-download" id="download" onclick="save(this)"></button>
+                        </div>
+                            </div>
+                    </div>
+                    `;
+                    }
+                    }
+                    
+                  else  if(document.querySelector("#seeAll").classList.contains("popAll")){
+      for(let i = 0;i<pops.length;i++){
+      document.querySelector(".displayAll-list").innerHTML += `
+       <div class = "display-list">
+                               <div class = "displayDetails">
+                        <img src="${pops[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "displayDetail">
+                           <h2 class = "artist">${pops[i].artist}</h2>
+                           <h3 class = "song" title = "${pops[i].url}">${pops[i].title}</h3>
+                       </div>
+                             </div>
+                                  
+                               <div class="displayMenu">
+                    <i class="bx bx-dots-vertical-rounded dots" onclick="name(this)"></i>
+                        <div class="slide" id="slide">
+                               <button class="bx bxs-heart light" ></button>
+                                 <button class="bx bx-download" onclick="save(this)"></button>
+                        </div>
+                            </div>
+                    </div>
+                    `;
+                    }
+                    }
+  })
+  })
+   //list out trending music
+                   showTrends(trends);
+                   function showTrends(result){
+                 
+                    for(let i =0;i<6;i++){
+                 
+                     document.querySelector(".trendList").innerHTML += `
+                                 
+                           <div class = "trend">
+                               <div class = "trendDetails">
+                        <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "trendDetail" >
+                           <p class = "artist" id="${i}">${result[i].artist}</p>
+                           <h3 class = "song" title = "${result[i].url}">${result[i].title}</h3>
+                       </div>
+                             </div>
+                                  <div class="displayMenu"></div>   
+                    <i class="bx bx-dots-vertical-rounded dots" onclick="name(this)"></i>
+                        <div class="slide" id="slide">
+                               <button class="bx bxs-heart light" ></button>
+                                 <button class="bx bx-download" id="download" onclick="save(this)"></button>
+                        </div>
+                            </div>
+                    </div>
+                        
+                    
+                                `;
+                    }
+                }
+                
+                //list out pop music
+                   showPops(pops);
+                   function showPops(result){
+                 
+                    for(let i =0;i<6;i++){
+                 
+                      document.querySelector(".popList").innerHTML += `
+                                 
+                           <div class = "pop">
+                               <div class = "popDetails">
+                        <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "popDetail">
+                           <p class = "artist" id="${i}">${result[i].artist}</p>
+                           <h3 class = "song" title = "${result[i].url}">${result[i].title}</h3>
+                       </div>
+                             </div>
+                                  
+                    <i class="bx bx-dots-vertical-rounded dots" onclick="name(this)" id="dots"></i>
+                        <div class="slide" id="slide">
+                               <button class="bx bxs-heart light"></button>
+                                 <button class="bx bx-download" id="download" onclick="save(this)"></button>
+                        </div>
+                    </div>
+                        
+                    
+                                `;
+                    }
+                }
+                
+                    //dots for download
+                               function name(e){ 
+                             e.nextElementSibling.classList.toggle("swift");
+                                       e.classList.toggle("show");
+                               }
+                  //list out liked songs
+          function likedSongs(){
+              likedList.style.display = "block";
+              downloads.style.display = "none";
+          }
+          
+        
+           
+             //close speedRate section
+                function closePage(){
+                    speedRat.style.display="none";
+                  document.querySelector(".menu").classList.toggle("popup");
+                    document.querySelector(".ne").style.display = "flex";
+                    }
+                //sign up
+                function user(){
+                    open('signup.html');
+                }
+                
+            
+            //like a music
+            function heart(e){
+            
+       let singer = e.parentElement.parentElement.parentElement.children[2].innerHTML;
+       let songTitle = e.parentElement.parentElement.parentElement.children[3].innerHTML;
+       let img = e.parentElement.parentElement.parentElement.children[1].src;
+                 likedSong.push(songTitle);
+       
+               localStorage.setItem("loo",JSON.stringify(likedSong));
+               localStorage.getItem("loo");
+               
+               if(e.classList.contains("light")){
+           
+                likeSong.innerHTML += `
+                <div class="musicHome">
+                    <div class = "music" >
+                        <img src="${img}" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail"onclick="musc(this)">
+                           <h2 class = "artist">${singer}</h2>
+                           <h3 class = "song" title="KNAAN.mp3">${songTitle}</h3>
+                           
+                       </div>
+                    </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                </div>
+                `;
+                e.classList.remove("light");
+                e.classList.add("like");
+                }
+                else{
+                    e.classList.remove("like");
+                    e.classList.add("light");
+                    let home  = document.querySelector(".musicHome").innerHTML;
+                   likeSong.remove();
+               
+               
+                }
+                }
+                
+
+              
+                //play trending music
+                document.querySelectorAll(".trendDetail").forEach(e=>{
+                    e.onclick = (e)=>{
+                       //give each music its index
+                       
+                    trendId = e.target.parentElement.children[0].id;
+              disAll.style.display = "none";
+                 document.getElementById("discoverPage").style.display ="none";
+             document.getElementById("profile").src = `${e.target.parentElement.parentElement.children[0].src}`;
+            //add trendMusic to artist to distinguish it from other music
+     document.querySelector(".ne .artist").classList.add("trendMusic");
+     document.querySelector(".ne .artist").classList.remove("dwnMusic");
+     document.querySelector(".ne .artist").classList.remove("popMusic");
+     //write out music details
+     let tit = e.target.parentElement.children[1].innerHTML;
+     
+            document.querySelector(".ne .artist").innerHTML = e.target.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.target.parentElement.children[1].innerHTML;
+              aud.src = e.target.parentElement.children[1].title;
+              aud.play();
+              clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+              likedList.style.display="none";
+              section1.style.display ="flex";
+              document.querySelector(".play").classList.remove("bxs-caret-right-circle");
+              document.querySelector(".play").classList.add("bx-pause-circle");
+                    }
+                });
+             
+                //play pop music
+                
+                document.querySelectorAll(".popDetail").forEach(e=>{
+                    e.onclick = (e)=>{
+                        popId = e.target.parentElement.children[0].id;
+                        
+                 disAll.style.display = "none";
+                 document.getElementById("discoverPage").style.display ="none";
+             document.getElementById("profile").src = `${e.target.parentElement.parentElement.children[0].src}`;
+            //add trendMusic to artist to distinguish it from other music
+document.querySelector(".ne .artist").classList.remove("trendMusic");
+document.querySelector(".ne .artist").classList.remove("dwnMusic");
+     document.querySelector(".ne .artist").classList.add("popMusic");
+     //write out music details
+            document.querySelector(".ne .artist").innerHTML = e.target.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.target.parentElement.children[1].innerHTML;
+              aud.src = e.target.parentElement.children[1].title;
+              aud.play();
+              clearInterval(updateTime);
+            updateTime =  setInterval(clock,1000);
+              likedList.style.display="none";
+              section1.style.display ="flex";
+              document.querySelector(".play").classList.remove("bxs-caret-right-circle");
+              document.querySelector(".play").classList.add("bx-pause-circle");
+                    }
+                });
+                
+               
+                //play songs from like library
+             function musc(e){
+           document.getElementById("profile").src = e.parentElement.children[0].src;
+            document.querySelector(".ne .artist").innerHTML = e.parentElement.children[0].innerHTML;
+              document.querySelector(".ne .title").innerHTML = e.parentElement.children[1].innerHTML;
+             aud.src = "KNAAN.mp3";
+             likeBtn.classList.add("like");
+             stat.classList.add("bx-pause-circle");
+              aud.play();
+              likedList.style.display="none";
+              section1.style.display ="flex";
+          }
+          
+          
+                
+        
+          //close liked songs page
+          function back(e){
+              likedList.style.display = "none";
+              libDetail.classList.remove('pop');
+              downloads.style.display ="none";
+              }
+
+            //discover button
+            discover.onclick = ()=>{
+                disAll.style.display ="none";
+                likedList.style.display= "none";
+                speedRat.style.display= "none";
+                libDetail.classList.remove('pop');
+                searchSec.style.display= "none";
+                document.querySelector(".headTitle").innerHTML = "Discover";
+               document.getElementById('discoverPage').style.display = "flex";
+            }
+       
+
+   
+                
+        //library toggle
+        function lib(){
+            document.querySelector(".libDetail").classList.toggle("pop");
+        }
+        
+   
+                let tim = 0.5;
+                
+//pay speed
+                function playBack(){
+                    document.querySelector(".ne").style.display="none";
+                    document.querySelector(".speedRate").style.display="flex";
+                    
+                }
+             
+                //pop up menu
+                function list(){
+                  document.querySelector(".menu").classList.toggle("popup");
+                    }
+        
+                            
+                    //search songs
+                    function search(){
+                      document.querySelector(".displayAll").style.display ="none";
+                        document.querySelector(".headTitle").innerHTML = "Search";
+                        let section1 = document.querySelector(".ne");
+                       let section2 = document.querySelector(".sectionTwo");
+                      likedList.style.display = "none";
+                      libDetail.classList.remove("pop");
+                      section2.style.display = "flex";
+                      speedRat.style.display= "none";
+               document.getElementById('discoverPage').style.display = "none";
+                      
+                    }
+                    let searchArea = document.getElementById("searchArea");
+                    let filterSongs = [];
+            
+                function showGallery(result){
+                    for(let i =0;i<result.length;i++){
+                        document.querySelector(".searchResult").style.display="flex";
+     
+                      document.querySelector(".searchResult").innerHTML += `
+                                  
+                    <div class = "music">
+                 <img src="${result[i].image}" alt="image" width="70" height="auto"></img>
+                       <div class = "musicDetail">
+                           <h2 class = "artist">${result[i].artist}</h2>
+                           <h3 class = "song">${result[i].title}</h3>
+                       </div>
+                              
+                    <i class="bx bx-dots-vertical-rounded" ></i>
+                    </div>
+                                `;
+                    }
+                }
+                document.getElementById("searchArea").addEventListener("input", function(){
+                    let searchVal = document.getElementById("searchArea").value.toLocaleString();
+                    
+                    filterSongs = data.filter(function(e){
+                                    if(e.title.includes(searchVal) || e.artist.includes(searchVal)){
+                                        var newObj = {title : e.title, artist : e.artist };
+                                   
+                                        return newObj;
+                                    }
+                                   
+                        })
+                   
+                            if(filterSongs === " "){
+                                document.querySelector(".nope").style.display ="block";
+                                document.querySelector(".searchResult").style.display="none";
+                         
+                            }
+                            else{
+                                showGallery(filterSongs);
+                        
+                                
+                            }
+                         
+                })
+                
+        </script>
+    </body>
+ </html>

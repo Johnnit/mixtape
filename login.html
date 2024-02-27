@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Music player"/>
+        <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>Signup</title>
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="styles/signup.css" type="text/css"/>
+            <link rel="stylesheet" href="styles/log.css" type="text/css"/>
+            <script src = "scripts/signup.js" type = "text/javascript"></script>
+        <style>
+        </style>
+    </head>
+    <body >
+       
+        <div class = "categories">
+            
+            <button class = "google">Log in with Google</button>
+            <button class = "facebook">Log in with Facebook</button>
+        </div>
+            <form action="index.html" method="get" onsubmit="return validate()">
+                <small style = "color:red;"></small><br></br>
+                <label for="id">Email address
+   <input type="email" id = "mail"name="Email" placeholder = "Enter mail address">
+       </label><br></br>
+           <label for="id" id="pass">Password
+  <input type="password" name="lname" id = "pswd" placeholder = "Enter Password">
+        <i class="bx bx-show" id="eye" onclick="show()"> </i>
+      </label><br></br>
+  <input type="submit" value="Log in"><br></br>
+</form>
+    <span>Forgotten password? <a href = "">click me</a></span>
+          </body>
+              <script>
+                  let pass = document.getElementById("pswd");
+                  let mail = document.getElementById("mail");
+                  function validate(){
+                      if(pass.value !== localStorage.getItem("password") || mail.value !== localStorage.getItem("Email") ){
+                          document.querySelector("small").innerHTML = "Incorrect login parameter";
+                          return false;
+                      }
+                      else{
+                          return true;
+                          }
+                  }
+                  function show(){
+           if(pswd.type == "password"){
+                pswd.type = "text";
+                
+                document.querySelector(".bx").classList.remove("bx-show");
+                document.querySelector(".bx").classList.add("bx-low-vision");
+                
+                }
+             else{
+                     pswd.type ="password";
+                     
+                     document.querySelector(".bx").classList.remove("bx-eye-slash");
+                     document.querySelector(".bx").classList.add("bx-show");
+                     }
+       }
+              </script>
+              </html>

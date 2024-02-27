@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Music player"/>
+        <meta charset="UTF-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>Signup</title>
+            <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="styles/signup.css" type="text/css"/>
+            <script src = "scripts/signup.js" type = "text/javascript"></script>
+        <style>
+        </style>
+    </head>
+    <body >
+       
+        <div class = "categories">
+            
+            <button class = "google">Log in with Google</button>
+            <button class = "facebook">Log in with Facebook</button>
+        </div>
+          
+        <form action="index.html" method="get">
+            <div class = "name">
+                
+  <label for="id">First Name
+       <input type="text" required autocomplete = "true" name="fname" id = "fname" autofocus = "on"><br>
+           </label>
+ <label for="id">Last Name
+     <input type="text" required name="lname" id = "lname"><br></br>
+         </label>
+         </div>
+         <label for="id">Username</label><br>
+             <input type="text" required name="text_input" id = "username"><br></br>
+   <label for="id">Email</label><br>
+   <input type="email" required  name="text_input" id = "email"><br></br>
+   <label for="id">Upload photo</label>
+         <input type="file" id = "photo" accept = ".jpg,.png,.jpeg"><br></br>
+        <label for="id" id="pass">Password
+   <input type="password" minlength = "6" title = "Enter minimum of 6 letters" required class = "pswd" id = "pswd">
+       <i class="bx bx-show" id="eye" onclick="show()"> </i>
+           </label>
+   <br></br>
+       
+   <label for="id">Confirm Password</label><br>
+   <input type="password" min = "8" required name="pass" id = "cpass"><br></br>
+       <label for="id" style="display:flex; gap:10px;">
+   <input type="checkbox" required name="check" class = "check">
+   <span>I agree to the Terms & Conditions</span>
+       </label><br>
+  <input type="submit" value="Signup" onclick="return signUp(this)" class = "sign" id = "submit"><br></br>
+</form>
+    <span>Already have an account?  <a style="font-size:large;" href = "login.html">Login</a></span>
+    </body>
+        <script>
+            let fname = document.getElementById("fname");
+let lname = document.getElementById("lname");
+let username = document.getElementById("username");
+let pass = document.getElementById("pswd");
+let email = document.getElementById("email");
+let cpass = document.getElementById("cpass");
+let signBtn = document.getElementById("submit");
+let date = new Date();
+let day = date.toLocaleString();
+let account = [];
+   window.onload = ()=>{
+       let pp = JSON.stringify(localStorage.getItem("account"));
+       alert(pp);
+   }
+  
+  function show(){
+           if(pswd.type == "password"){
+                pswd.type = "text";
+                cpass.type = "text";
+                document.querySelector(".bx").classList.remove("bx-show");
+                document.querySelector(".bx").classList.add("bx-low-vision");
+                alert(pswd.className);
+                }
+             else{
+                     pswd.type ="password";
+                     cpass.type="password";
+                     document.querySelector(".bx").classList.remove("bx-eye-slash");
+                     document.querySelector(".bx").classList.add("bx-show");
+                     }
+       }
+//signBtn.addEventListener("click", signUp);
+function signUp(e){
+   
+    let  list =  {
+         "name": `${fname.value} ${lname.value}`,
+        "username": `${username.value}`,
+        "password": `${pass.value}`,
+        "mail": `${email.value}`,
+       "date": day
+       }
+       ;
+    account.push(list);
+   /* localStorage.setItem("Email",`${email.value}`);
+    localStorage.setItem("password",`${pass.value}`);
+    localStorage.getItem("Email");
+    localStorage.getItem("password");*/
+   
+   localStorage.setItem("account",JSON.stringify(account));
+ localStorage.getItem("account");
+  
+    if(pass.value != cpass.value || pass.value.length != cpass.value.length){
+        pass.style.border = "2px solid red";
+        return false;
+    }
+    else{
+        return true;
+        }
+    
+}
+
+        </script>
+        </html>
